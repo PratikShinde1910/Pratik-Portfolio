@@ -1,113 +1,150 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---- Constants ---- */
+  const CURSOR_FRICTION = 0.12;
+  const FOLLOWER_OFFSET = 18;
+  const CURSOR_OFFSET = 4;
+  const MOBILE_BREAKPOINT = 900;
+  const REVEAL_OFFSET = 60;
+
   /* ---- Custom Cursor ---- */
   const cursor = document.getElementById('cursor');
   const follower = document.getElementById('cursor-follower');
 
-  if (window.innerWidth > 900 && cursor && follower) {
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
+  let mouseX = 0, mouseY = 0;
+  let followerX = 0, followerY = 0;
+  let isCursorActive = false;
+  let animationFrameId = null;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
-    });
+  const updateCursorPosition = (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.transform = `translate3d(${mouseX - CURSOR_OFFSET}px, ${mouseY - CURSOR_OFFSET}px, 0)`;
+  };
 
-    const followLoop = () => {
-      followerX += (mouseX - followerX) * 0.12;
-      followerY += (mouseY - followerY) * 0.12;
-      follower.style.transform = `translate3d(${followerX - 18}px, ${followerY - 18}px, 0)`;
-      requestAnimationFrame(followLoop);
-    };
-    followLoop();
+  const followLoop = () => {
+    followerX += (mouseX - followerX) * CURSOR_FRICTION;
+    followerY += (mouseY - followerY) * CURSOR_FRICTION;
+    follower.style.transform = `translate3d(${followerX - FOLLOWER_OFFSET}px, ${followerY - FOLLOWER_OFFSET}px, 0)`;
+    animationFrameId = requestAnimationFrame(followLoop);
+  };
 
-    const clickables = document.querySelectorAll('a, button, .project-card, .service-card, .stat-card, .skill-tag, .tl-item');
-    clickables.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
-        follower.classList.add('hover');
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
-        follower.classList.remove('hover');
-      });
-    });
-  }
+  const initCursor = () => {
+    if (window.innerWidth > MOBILE_BREAKPOINT && cursor && follower) {
+      if (!isCursorActive) {
+        isCursorActive = true;
+        document.addEventListener('mousemove', updateCursorPosition, { passive: true });
+        followLoop();
+      }
+    } else {
+      if (isCursorActive) {
+        isCursorActive = false;
+        document.removeEventListener('mousemove', updateCursorPosition);
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      }
+    }
+  };
+
+  initCursor();
+  window.addEventListener('resize', initCursor, { passive: true });
+
+  // Event Delegation for hover effects
+  const handleCursorHover = (e, isHovering) => {
+    if (!isCursorActive) return;
+    const isClickable = e.target.closest('a, button, .project-card, .service-card, .stat-card, .skill-tag, .tl-item, .tool-card');
+
+    if (isClickable) {
+      if (isHovering) {
+        cursor?.classList.add('hover');
+        follower?.classList.add('hover');
+      } else {
+        cursor?.classList.remove('hover');
+        follower?.classList.remove('hover');
+      }
+    }
+  };
+
+  document.addEventListener('mouseover', (e) => handleCursorHover(e, true), { passive: true });
+  document.addEventListener('mouseout', (e) => handleCursorHover(e, false), { passive: true });
 
   /* ---- Mobile Sidebar + Nav Toggle ---- */
   const hamburger = document.getElementById('hamburger');
   const sidebar = document.getElementById('sidebar');
   const navLinks = document.getElementById('topnav-links');
 
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      // On narrow screens, toggle sidebar; on mid screens toggle nav links
-      if (window.innerWidth <= 900) {
-        sidebar && sidebar.classList.toggle('open');
-        navLinks && navLinks.classList.toggle('open');
-      }
-    });
-  }
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
 
-  // Close mobile menu on link click
-  const allNavLinks = document.querySelectorAll('.topnav-link');
-  allNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger && hamburger.classList.remove('active');
-      sidebar && sidebar.classList.remove('open');
-      navLinks && navLinks.classList.remove('open');
-    });
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+      sidebar?.classList.toggle('open');
+      navLinks?.classList.toggle('open');
+    }
   });
 
-  /* ---- Active Nav Link on Scroll ---- */
+  // Close mobile menu on link click using Event Delegation
+  navLinks?.addEventListener('click', (e) => {
+    if (e.target.closest('.topnav-link')) {
+      hamburger?.classList.remove('active');
+      sidebar?.classList.remove('open');
+      navLinks?.classList.remove('open');
+    }
+  });
+
+  /* ---- Intersection Observer for Active Nav Link (Scroll Spy) ---- */
   const sections = document.querySelectorAll('.page-section');
+  const allNavLinks = document.querySelectorAll('.topnav-link');
 
-  const updateActiveLink = () => {
-    let current = 'home';
-    const scrollPos = window.scrollY + window.innerHeight * 0.35;
-
-    sections.forEach(section => {
-      if (section.offsetTop <= scrollPos) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    allNavLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('data-section') === current) {
-        link.classList.add('active');
-      }
-    });
+  // Trigger when a section crosses the top 35% of the viewport
+  const navObserverOptions = {
+    root: null,
+    rootMargin: '-35% 0px -65% 0px',
+    threshold: 0
   };
 
-  updateActiveLink();
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // If section intersects our bounds, mark its nav link as active
+      if (entry.isIntersecting) {
+        const currentId = entry.target.getAttribute('id');
+        allNavLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === currentId) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, navObserverOptions);
 
-  /* ---- Scroll Reveal ---- */
+  sections.forEach(section => navObserver.observe(section));
+
+  /* ---- Intersection Observer for Scroll Reveal ---- */
   const revealEls = document.querySelectorAll('.reveal');
 
-  const revealOnScroll = () => {
-    const wh = window.innerHeight;
-    revealEls.forEach(el => {
-      if (el.getBoundingClientRect().top < wh - 60) {
-        el.classList.add('active');
-      }
-    });
+  const revealObserverOptions = {
+    root: null,
+    // Trigger slightly before element comes into view (wh - 60px)
+    rootMargin: `0px 0px -${REVEAL_OFFSET}px 0px`,
+    threshold: 0.01 // Fire as soon as 1% is visible past the rootMargin
   };
 
-  revealOnScroll();
-  window.addEventListener('scroll', revealOnScroll, { passive: true });
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Good for performance: stop observing once revealed
+        observer.unobserve(entry.target);
+      }
+    });
+  }, revealObserverOptions);
+
+  revealEls.forEach(el => revealObserver.observe(el));
 
   /* ---- Sidebar CTA smooth scroll ---- */
   const sidebarCta = document.querySelector('.sidebar-cta');
-  if (sidebarCta) {
-    sidebarCta.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.getElementById('contact');
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
+  sidebarCta?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  });
 
 });
