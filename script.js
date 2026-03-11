@@ -162,14 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Ecosystem:</strong> The platform also includes a dynamic reward and streak system, community feed for shared progress, and optional coach connect support. Built using React Native (Expo) and Supabase for a seamless experience with Expo Push Notifications for real-time engagement.</p>
       `,
       images: [
-        'fithive-1.png',
-        'fithive-2.png',
-        'fithive-3.png',
-        'fithive-4.png',
-        'fithive-5.png',
-        'fithive-6.png',
-        'fithive-7.png',
         'fithive-8.png',
+        'fithive-7.png',
+        'fithive-3.png',
+        'fithive-2.png',
+        'fithive-5.png',
+        'fithive-4.png',
         'fithive-9.png',
         'fithive-10.png'
       ]
@@ -183,10 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Architecture:</strong> Uses real-time data synchronization to dynamically update parking availability and booking status. Built using React Native for the frontend, with Firebase for real-time database synchronization and backend services.</p>
       `,
       images: [
-        'https://images.unsplash.com/photo-1548674465-4f7fdbffec74?auto=format&fit=crop&q=80&w=600',
-        'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=600',
-        'https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&q=80&w=600',
-        'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=600'
+        'carpark-1.jpg',
+        'carpark-2.jpg',
+        'carpark-3.jpg',
+        'carpark-4.jpg',
+        'carpark-5.jpg'
       ]
     },
     'motive': {
@@ -270,12 +269,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---- Screen Labels for all projects ---- */
   const screenLabels = {
     'fithive': [
-      'Dashboard', 'Activity Tracking', 'Health Metrics',
-      'Community Feed', 'Rewards / Fit Coins', 'Profile / Stats',
-      'AI Chatbot', 'Daily Missions', 'Sleep Tracker', 'Hydration Log'
+      'Dashboard', 'Health Metrics', 'User Profile',
+      'Coach List', 'Coach Bio', 'Coach Chat',
+      'Rewards Store', 'Gift Details'
     ],
     'carpark': [
-      'Parking Map', 'Slot Availability', 'QR Booking', 'Payment Screen'
+      'Owner Profile', 'Home Screen', 'Booking Confirmed', 'Wallet / Payment', 'Parking Nearby'
     ],
     'motive': [
       'Meditation Home', 'Session Player', 'Health Summary', 'Progress Tracker'
