@@ -161,15 +161,17 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Key Features:</strong> It features an NLP-powered 24×7 fitness chatbot that provides instant guidance on workouts, nutrition, sleep, and hydration. User activity data such as water intake, workouts, sleep cycles, and personal goals are analyzed to generate smart health summaries and daily mission recommendations.</p>
         <p><strong>Ecosystem:</strong> The platform also includes a dynamic reward and streak system, community feed for shared progress, and optional coach connect support. Built using React Native (Expo) and Supabase for a seamless experience with Expo Push Notifications for real-time engagement.</p>
       `,
-      images: [
-        'fithive-8.png',
-        'fithive-7.png',
-        'fithive-3.png',
-        'fithive-2.png',
-        'fithive-5.png',
-        'fithive-4.png',
-        'fithive-9.png',
-        'fithive-10.png'
+      shots: [
+        { url: 'fithive-10.png', label: 'Home Screen' },
+        { url: 'fithive-9.png', label: 'Health metrics' },
+        { url: 'fithive-8.png', label: 'Rewards' },
+        { url: 'fithive-7.png', label: 'Rewards using Fitcoins' },
+        { url: 'fithive-12.png', label: 'Community Feed' },
+        { url: 'fithive-11.png', label: 'Challenges' },
+        { url: 'fithive-3.png', label: 'Coach Screen' },
+        { url: 'fithive-2.png', label: 'Coach Profile' },
+        { url: 'fithive-5.png', label: 'Coach chat' },
+        { url: 'fithive-4.png', label: 'Profile' },
       ]
     },
     'carpark': {
@@ -180,12 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Key Features:</strong> It features QR-based check-in and check-out functionality to streamline entry and exit processes. Google Maps integration enables users to locate nearby parking spaces and EV charging stations with accurate navigation support.</p>
         <p><strong>Architecture:</strong> Uses real-time data synchronization to dynamically update parking availability and booking status. Built using React Native for the frontend, with Firebase for real-time database synchronization and backend services.</p>
       `,
-      images: [
-        'carpark-1.jpg',
-        'carpark-2.jpg',
-        'carpark-3.jpg',
-        'carpark-4.jpg',
-        'carpark-5.jpg'
+      shots: [
+        { url: 'carpark-2.jpg', label: 'Home Screen' },
+        { url: 'carpark-5.jpg', label: 'Parking Nearby' },
+        { url: 'carpark-4.jpg', label: 'Wallet / Payment' },
+        { url: 'carpark-3.jpg', label: 'Booking Confirmed' },
+        { url: 'carpark-1.jpg', label: 'Owner Profile' },
       ]
     },
     'motive': {
@@ -196,11 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Key Features:</strong> The app features guided meditation sessions, personalized health summaries, and progress tracking to empower mental well-being and daily relaxation.</p>
         <p><strong>Design:</strong> Built with a clean, immersive user interface focusing on calm, soothing visuals to deliver a premium user experience.</p>
       `,
-      images: [
-        'motive-1.png',
-        'motive-2.png',
-        'motive-3.png',
-        'motive-4.png'
+      shots: [
+        { url: 'motive-1.png', label: 'Meditation Home' },
+        { url: 'motive-2.png', label: 'Session Player' },
+        { url: 'motive-3.png', label: 'Data Summary' },
+        { url: 'motive-4.png', label: 'Progress Tracker' },
       ]
     },
     'annapurna': {
@@ -211,12 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Key Features:</strong> Users can browse recipes by categories, search for specific dishes using keywords, and view detailed recipe pages with ingredients, cooking time, servings, and step-by-step preparation instructions. A dedicated favorites section enables quick access to saved recipes.</p>
         <p><strong>Architecture:</strong> The application focuses on smooth navigation and a seamless user experience using bottom tab navigation. Built using React Native (Expo) with TypeScript, ensuring scalable architecture, type safety, and responsive mobile performance.</p>
       `,
-      images: [
-        'annapurna-1.png',
-        'annapurna-2.png',
-        'annapurna-3.png',
-        'annapurna-4.png',
-        'annapurna-5.png'
+      shots: [
+        { url: 'annapurna-5.png', label: 'Home screen' },
+        { url: 'annapurna-2.png', label: 'Search Engine' },
+        { url: 'annapurna-4.png', label: 'Recipe page' },
+        { url: 'annapurna-1.png', label: 'Recipe overview' },
+        { url: 'annapurna-3.png', label: 'Favorites' },
       ]
     },
     'quickbite': {
@@ -227,15 +229,15 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Key Features:</strong> It implements secure JWT-based authentication, with protected backend routes and token management using AsyncStorage and Axios interceptors. User-specific data such as favorites and orders are dynamically fetched from MongoDB.</p>
         <p><strong>Architecture:</strong> The application follows a structured client-server architecture built using React Native (Expo) with TypeScript on the frontend, and Node.js, Express.js, and MongoDB Atlas on the backend, deployed via Netlify and Render.</p>
       `,
-      images: [
-        'quickbite-1.png',
-        'quickbite-2.png',
-        'quickbite-3.png',
-        'quickbite-4.png',
-        'quickbite-5.png',
-        'quickbite-6.png',
-        'quickbite-7.png',
-        'quickbite-8.png'
+      shots: [
+        { url: 'quickbite-4.png', label: 'Home screen' },
+        { url: 'quickbite-5.png', label: 'Restaurant screen' },
+        { url: 'quickbite-2.png', label: 'Food Overview' },
+        { url: 'quickbite-1.png', label: 'Cart' },
+        { url: 'quickbite-6.png', label: 'OrderConfirmation' },
+        { url: 'quickbite-7.png', label: 'Orders' },
+        { url: 'quickbite-8.png', label: 'Tracking system' },
+        { url: 'quickbite-3.png', label: 'Favorites' },
       ]
     },
     'leadify': {
@@ -246,12 +248,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Key Features:</strong> Users can create and manage leads with categorized statuses enabling clear sales pipeline visibility. A dedicated dashboard presents lead statistics and visual charts for quick performance analysis. The application also supports customer management with search functionality and editable profiles.</p>
         <p><strong>Architecture:</strong> Built using React Native (Expo) with Redux Toolkit for state management, React Native Paper for UI components, AsyncStorage for local persistence, and Formik + Yup for form validation.</p>
       `,
-      images: [
-        'leadify-1.png',
-        'leadify-2.png',
-        'leadify-3.png',
-        'leadify-4.png',
-        'leadify-5.png'
+      shots: [
+        { url: 'leadify-1.png', label: 'Dashboard & analytics' },
+        { url: 'leadify-2.png', label: 'Lead Pipeline' },
+        { url: 'leadify-3.png', label: 'Lead Detail' },
+        { url: 'leadify-4.png', label: 'Customer List' },
+        { url: 'leadify-5.png', label: 'Lead info' }
       ]
     }
   };
@@ -266,45 +268,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const descButtons = document.querySelectorAll('.btn-desc');
 
-  /* ---- Screen Labels for all projects ---- */
-  const screenLabels = {
-    'fithive': [
-      'Dashboard', 'Health Metrics', 'User Profile',
-      'Coach List', 'Coach Bio', 'Coach Chat',
-      'Rewards Store', 'Gift Details'
-    ],
-    'carpark': [
-      'Owner Profile', 'Home Screen', 'Booking Confirmed', 'Wallet / Payment', 'Parking Nearby'
-    ],
-    'motive': [
-      'Meditation Home', 'Session Player', 'Health Summary', 'Progress Tracker'
-    ],
-    'annapurna': [
-      'Recipe Browser', 'Category View', 'Recipe Detail', 'Ingredients', 'Favorites'
-    ],
-    'quickbite': [
-      'Restaurant List', 'Menu View', 'Cart', 'Order Confirmation',
-      'Favorites', 'Profile', 'Auth', 'Categories'
-    ],
-    'leadify': [
-      'Dashboard', 'Lead Pipeline', 'Lead Detail', 'Customer List', 'Analytics'
-    ]
-  };
+
 
   /** Build the unified swipe carousel for any project */
-  const buildSwipeCarousel = (projectId, images) => {
-    const labels = screenLabels[projectId] || [];
-
-    const slidesHTML = images.map((url, i) => `
+  const buildSwipeCarousel = (shots) => {
+    const slidesHTML = shots.map((shot, i) => `
       <div class="sc-slide" data-index="${i}">
         <div class="sc-phone-frame">
-          <img src="${url}" alt="${labels[i] || 'App Screen'}" loading="lazy" />
+          <img src="${shot.url}" alt="${shot.label || 'App Screen'}" loading="lazy" />
         </div>
-        <div class="sc-slide-label">${labels[i] || ''}</div>
+        <div class="sc-slide-label">${shot.label || ''}</div>
       </div>
     `).join('');
 
-    const dotsHTML = images.map((_, i) => `
+    const dotsHTML = shots.map((_, i) => `
       <button class="sc-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>
     `).join('');
 
@@ -386,26 +363,9 @@ document.addEventListener('DOMContentLoaded', () => {
     modalDesc.innerHTML = data.desc;
 
     // ── Build unified swipe carousel for all projects ──
-    let galleryHTML = buildSwipeCarousel(projectId, data.images);
+    let galleryHTML = buildSwipeCarousel(data.shots);
 
-    // ── FitHive: Also add grid gallery + lightbox ──
-    if (projectId === 'fithive') {
-      const labels = screenLabels['fithive'];
-      const gridHTML = data.images.map((url, i) => `
-        <div class="fh-grid-item" data-index="${i}">
-          <img src="${url}" alt="${labels[i] || 'FitHive Screen'}" loading="lazy" />
-        </div>
-      `).join('');
 
-      galleryHTML += `
-        <div class="fh-grid-wrap">
-          <div class="sc-section-label">All Screenshots</div>
-          <div class="fh-grid" id="fh-grid">
-            ${gridHTML}
-          </div>
-        </div>
-      `;
-    }
 
     modalGallery.innerHTML = galleryHTML;
 
@@ -414,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── FitHive: Lightbox setup ──
     if (projectId === 'fithive' && carouselCtx) {
-      const gridItems = document.querySelectorAll('.fh-grid-item');
+
 
       // Create lightbox DOM (appended once)
       let lightbox = document.getElementById('fh-lightbox');
@@ -423,9 +383,9 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.className = 'fh-lightbox';
         lightbox.id = 'fh-lightbox';
 
-        const lbSlidesHTML = data.images.map(url => `
+        const lbSlidesHTML = data.shots.map(shot => `
           <div class="fh-lightbox-slide">
-            <img src="${url}" alt="FitHive screenshot" />
+            <img src="${shot.url}" alt="FitHive screenshot" />
           </div>
         `).join('');
 
@@ -448,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="fh-lightbox-nav fh-lightbox-next" id="fh-lb-next" aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
           </button>
-          <div class="fh-lightbox-counter" id="fh-lb-counter">1 / ${data.images.length}</div>
+          <div class="fh-lightbox-counter" id="fh-lb-counter">1 / ${data.shots.length}</div>
         `;
         document.body.appendChild(lightbox);
       }
@@ -459,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const updateLightbox = () => {
         lbTrack.style.transform = `translateX(-${lbIndex * 100}%)`;
-        lbCounter.textContent = `${lbIndex + 1} / ${data.images.length}`;
+        lbCounter.textContent = `${lbIndex + 1} / ${data.shots.length}`;
       };
 
       const openLightbox = (idx) => {
@@ -473,11 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.remove('is-open');
       };
 
-      gridItems.forEach(item => {
-        item.addEventListener('click', () => {
-          openLightbox(parseInt(item.dataset.index, 10));
-        });
-      });
+
 
       // Also allow carousel slides to open lightbox on click (not drag)
       carouselCtx.slides.forEach(slide => {
@@ -496,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lbIndex > 0) { lbIndex--; updateLightbox(); }
       });
       document.getElementById('fh-lb-next').addEventListener('click', () => {
-        if (lbIndex < data.images.length - 1) { lbIndex++; updateLightbox(); }
+        if (lbIndex < data.shots.length - 1) { lbIndex++; updateLightbox(); }
       });
 
       // Keyboard nav for lightbox
@@ -504,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!lightbox.classList.contains('is-open')) return;
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft' && lbIndex > 0) { lbIndex--; updateLightbox(); }
-        if (e.key === 'ArrowRight' && lbIndex < data.images.length - 1) { lbIndex++; updateLightbox(); }
+        if (e.key === 'ArrowRight' && lbIndex < data.shots.length - 1) { lbIndex++; updateLightbox(); }
       };
       document.addEventListener('keydown', lbKeyHandler);
 
@@ -515,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lbContent.addEventListener('touchend', (e) => {
         const diff = lbTouchStartX - e.changedTouches[0].clientX;
         if (Math.abs(diff) > 50) {
-          if (diff > 0 && lbIndex < data.images.length - 1) { lbIndex++; updateLightbox(); }
+          if (diff > 0 && lbIndex < data.shots.length - 1) { lbIndex++; updateLightbox(); }
           if (diff < 0 && lbIndex > 0) { lbIndex--; updateLightbox(); }
         }
       }, { passive: true });

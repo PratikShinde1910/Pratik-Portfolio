@@ -1156,59 +1156,11 @@ strong {
   box-shadow: 0 0 8px rgba(232, 121, 249, 0.4);
 }
 
-/* --- FitHive Grid Gallery (FitHive only) --- */
-.fh-grid-wrap {
-  margin-top: 1rem;
-}
 
-.fh-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.fh-grid-item {
-  border-radius: 16px;
-  overflow: hidden;
-  background: #1c1c1c;
-  border: 1px solid var(--border);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.fh-grid-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0);
-  transition: background 0.3s ease;
-  border-radius: 16px;
-  pointer-events: none;
-}
-
-.fh-grid-item:hover::after {
-  background: rgba(232, 121, 249, 0.08);
-}
-
-.fh-grid-item:hover {
-  border-color: rgba(232, 121, 249, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.fh-grid-item img {
-  width: 100%;
-  aspect-ratio: 9 / 19.5;
-  object-fit: cover;
-  display: block;
-}
 
 /* Carousel + Grid responsive */
 @media (max-width: 768px) {
-  .fh-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
 
   .sc-slide {
     width: 180px;
@@ -1216,11 +1168,7 @@ strong {
 }
 
 @media (max-width: 480px) {
-  .fh-grid {
-    grid-template-columns: 1fr;
-    max-width: 280px;
-    margin: 0 auto;
-  }
+
 
   .sc-slide {
     width: 160px;
